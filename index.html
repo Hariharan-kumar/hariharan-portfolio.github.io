@@ -1,262 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hariharan K | Junior Java Developer</title>
-  <meta name="description" content="Junior Java Developer | Spring Boot | Docker | 2+ Years Experience"/>
+  <title>Hariharan K • Java Developer</title>
+  <meta name="description" content="Junior Java Developer | Spring Boot, Docker, JUnit | 2+ Years Experience"/>
 
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          animation: { 'fade-in': 'fadeIn 0.8s ease-out forwards' }
+        }
+      }
+    }
+  </script>
   <style>
-    :root {
-      --primary: #6366f1;
-      --primary-light: #818cf8;
-      --dark: #0f172a;
-      --card: rgba(30, 41, 59, 0.75);
-      --glass: rgba(255, 255, 255, 0.08);
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: #e2e8f0;
-      line-height: 1.7;
-      min-height: 100vh;
-    }
-    a { color: var(--primary-light); text-decoration: none; }
-
-    /* Header - Mobile First */
-    header {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem 1rem;
-      position: relative;
-      background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><pattern id=%22grid%22 width=%2215%22 height=%2215%22 patternUnits=%22userSpaceOnUse%22><path d=%22M 15 0 L 0 0 0 15%22 fill=%22none%22 stroke=%22%23333%22 stroke-width=%220.5%22/></pattern></defs><rect width=%22100%22 height=%22100%22 fill=%22url(%23grid)%22/></svg>') center/cover;
-    }
-    header::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(15, 23, 42, 0.94); backdrop-filter: blur(12px);
-    }
-    .hero-content { position: relative; z-index: 2; max-width: 1000px; width: 100%; }
-
-    .profile-img {
-      width: 160px; height: 160px;
-      border-radius: 50%;
-      border: 6px solid var(--primary);
-      margin-bottom: 1.5rem;
-      box-shadow: 0 10px 30px rgba(99,102,241,0.5);
-      object-fit: cover;
-    }
-    .hero-content h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, #a5b4fc, #c084fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-    }
-    .hero-content p {
-      font-size: 1.3rem;
-      margin: 0.5rem 0 1.5rem;
-      opacity: 0.9;
-    }
-    .btn {
-      padding: 0.9rem 2rem;
-      background: var(--primary);
-      color: white;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: all 0.3s;
-      box-shadow: 0 8px 25px rgba(99,102,241,0.4);
-    }
-    .btn:hover { background: #4f46e5; transform: translateY(-4px); }
-
-    .contact-links {
-      display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin: 2rem 0;
-    }
-    .contact-links a {
-      padding: 0.7rem 1.2rem;
-      background: var(--glass);
-      border: 1px solid rgba(99,102,241,0.3);
-      border-radius: 50px;
-      font-size: 0.95rem;
-      transition: all 0.3s;
-    }
-    .contact-links a:hover { background: var(--primary); transform: translateY(-4px); }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 1rem;
-    }
-    section { margin-bottom: 4rem; }
-    h2 {
-      font-size: 2.2rem;
-      text-align: center;
-      margin-bottom: 2.5rem;
-      background: linear-gradient(90deg, #a5b4fc, #c084fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .grid {
-      display: grid;
-      gap: 1.8rem;
-      grid-template-columns: 1fr;
-    }
-    .card {
-      background: var(--card);
-      padding: 1.8rem;
-      border-radius: 20px;
-      border: 1px solid rgba(99,102,241,0.25);
-      backdrop-filter: blur(12px);
-      transition: all 0.4s;
-    }
-    .card::before {
-      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
-      background: linear-gradient(90deg, var(--primary), #c084fc);
-      border-radius: 20px 20px 0 0;
-    }
-    .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-    .card h3 {
-      color: var(--primary-light);
-      margin-bottom: 0.8rem;
-      font-size: 1.4rem;
-    }
-    .tags { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .tag {
-      background: rgba(99,102,241,0.3);
-      color: #ddd6fe;
-      padding: 0.4rem 0.8rem;
-      border-radius: 30px;
-      font-size: 0.8rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: #0f172a;
-      border-top: 1px solid #334155;
-      font-size: 0.9rem;
-    }
-
-    /* Tablet & Desktop Adjustments */
-    @media (min-width: 640px) {
-      .hero-content h1 { font-size: 4rem; }
-      .hero-content p { font-size: 1.5rem; }
-      .profile-img { width: 180px; height: 180px; }
-    }
-    @media (min-width: 768px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
-      .hero-content h1 { font-size: 4.8rem; }
-      .profile-img { width: 200px; height: 200px; }
-    }
-    @media (min-width: 1024px) {
-      .grid { grid-template-columns: repeat(3, 1fr); }
-      h2 { font-size: 2.8rem; }
-    }
+    .animate-fade { opacity: 0; animation: fadeIn 1s ease-out forwards; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .glass { backdrop-filter: blur(16px); background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); }
+    .skill-badge { @apply bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 px-3 py-1 rounded-full text-sm; }
+    .project-card { @apply glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 border border-white/10; }
   </style>
 </head>
-<body>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen">
 
-  <header>
-    <div class="hero-content">
-      <img src="photo.jpg" alt="Hariharan K" class="profile-img">
-      <h1>HARIHARAN .K</h1>
-      <p>Junior Java Developer</p>
-      <a href="Hariharan_Resume.pdf" download class="btn">
-        Download Resume
-      </a>
-      <div class="contact-links">
-        <a href="tel:+916381346814">+91 6381346814</a>
-        <a href="mailto:hariharank2019@gmail.com">hariharank2019@gmail.com</a>
-        <a href="https://www.linkedin.com/in/hariharan-k-9375a6174/" target="_blank">LinkedIn</a>
-        <a href="#">Trichy, Tamilnadu</a>
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 glass border-b border-white/10 backdrop-blur-xl">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Hariharan K</h1>
+      <div class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="#home" class="hover:text-indigo-400 transition">Home</a>
+        <a href="#about" class="hover:text-indigo-400 transition">About</a>
+        <a href="#skills" class="hover:text-indigo-400 transition">Skills</a>
+        <a href="#projects" class="hover:text-indigo-400 transition">Projects</a>
+        <a href="#experience" class="hover:text-indigo-400 transition">Experience</a>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <div class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p style="text-align:center; font-size:1.1rem; max-width:900px; margin:0 auto;">
-        Junior Java Developer with 2+ years of experience building scalable web applications using 
-        <strong>Java, Spring Boot, MongoDB, and REST APIs</strong>. Skilled in Docker containerization, 
-        writing clean code, and robust testing with JUnit. Passionate about delivering production-ready solutions.
+  <!-- Hero -->
+  <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20">
+    <div class="text-center max-w-4xl animate-fade">
+      <img src="photo.jpg" alt="Hariharan K" class="w-40 h-40 rounded-full mx-auto mb-8 border-4 border-indigo-500 shadow-2xl"/>
+      <h1 class="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+        Hariharan K
+      </h1>
+      <p class="text-2xl md:text-3xl font-light text-gray-600 dark:text-gray-300 mb-8">
+        Junior Java Developer
       </p>
-    </section>
-
-    <section id="skills">
-      <h2>Technical Skills</h2>
-      <div class="grid">
-        <div class="card"><h3>Languages & Frameworks</h3><p>Java • Java 8 • Spring Boot • Spring Security • REST APIs</p></div>
-        <div class="card"><h3>Databases & Tools</h3><p>MongoDB • MySQL • Elasticsearch • AWS S3 • Apache POI • JavaMail</p></div>
-        <div class="card"><h3>DevOps & Testing</h3><p><strong>Docker</strong> • <strong>JUnit</strong> • <strong>TortoiseSVN</strong> • Maven • Git • Postman</p></div>
+      <div class="flex flex-wrap justify-center gap-4 mb-10">
+        <a href="resume.pdf" download class="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium shadow-lg transition">
+          Download Resume
+        </a>
+        <a href="mailto:hariharank2019@gmail.com" class="px-8 py-4 border border-gray-300 dark:border-gray-600 rounded-xl backdrop-blur hover:bg-white/10 transition">
+          Get in Touch
+        </a>
       </div>
-    </section>
+      <div class="flex justify-center gap-6 text-gray-600 dark:text-gray-400">
+        <a href="tel:+916381346814" class="hover:text-indigo-400">+91 63813 46814</a>
+        <a href="https://linkedin.com/in/hariharan-k-9375a6174" target="_blank" class="hover:text-indigo-400">LinkedIn</a>
+        <span>Trichy, India</span>
+      </div>
+    </div>
+  </section>
 
-    <section id="projects">
-      <h2>Featured Projects</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>AI-Powered Resume Parser with ChatGPT</h3>
-          <p>Intelligent system that parses resumes and uses OpenAI GPT to extract structured data step-by-step and store in MongoDB.</p>
-          <div class="tags">
-            <span class="tag">Spring Boot</span>
-            <span class="tag">OpenAI GPT</span>
-            <span class="tag">MongoDB</span>
-          </div>
+  <!-- About -->
+  <section id="about" class="py-20 px-6 max-w-5xl mx-auto animate-fade">
+    <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+      About Me
+    </h2>
+    <p class="text-lg leading-relaxed text-center max-w-3xl mx-auto text-gray-700 dark:text-gray-300">
+      Passionate <strong>Java Developer</strong> with 2+ years of hands-on experience building scalable backend systems using 
+      <strong>Spring Boot, REST APIs, MongoDB, and Docker</strong>. Love writing clean, testable code (JUnit) and deploying 
+      reliable applications. Always learning and excited to contribute to impactful projects.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-20 px-6 bg-gray-100 dark:bg-gray-900/50">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+        Technical Skills
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center p-6">
+          <div class="text-5xl mb-4">Java</div>
+          <p class="font-medium">Core Java & Java 8</p>
         </div>
-        <div class="card">
-          <h3>Secure OTP Email Verification</h3>
-          <p>Secure login using time-limited OTP sent via email.</p>
-          <div class="tags"><span class="tag">JavaMail</span><span class="tag">Spring Security</span></div>
+        <div class="text-center p-6">
+          <div class="text-5xl mb-4">Spring Boot</div>
+          <p class="font-medium">Spring MVC • Security • Data</p>
         </div>
-        <div class="card">
-          <h3>Subscription Scheduler</h3>
-          <p>Automated daily job to manage user subscriptions.</p>
-          <div class="tags"><span class="tag">@Scheduled</span><span class="tag">Spring Boot</span></div>
+        <div class="text-center p-6">
+          <div class="text-5xl mb-4">Docker</div>
+          <p class="font-medium">Containerization</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="text-5xl mb-4">JUnit</div>
+          <p class="font-medium">Unit Testing</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="text-5xl mb-4">MongoDB</div>
+          <p class="font-medium">NoSQL & MySQL</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="text-5xl mb-4">Git</div>
+          <p class="font-medium">TortoiseSVN • Git</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="text-5xl mb-4">AWS</div>
+          <p class="text-5xl mb-4">S3</div>
+          <p class="font-medium">Cloud Storage</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="text-5xl mb-4">API</div>
+          <p class="font-medium">RESTful APIs</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Junior Java Developer</h3>
-          <p><strong>GigaMe Inc.</strong> • Madurai<br>Jan 2023 – Present</p>
-          <ul style="margin-top:1rem; padding-left:1.2rem; font-size:0.95rem;">
-            <li>Built REST APIs with Spring Boot & MongoDB</li>
-            <li>Integrated OpenAI for resume parsing</li>
-            <li>Containerized apps using Docker</li>
-            <li>Wrote unit tests with JUnit</li>
-          </ul>
+  <!-- Projects -->
+  <section id="projects" class="py-20 px-6 max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+      Featured Projects
+    </h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="project-card animate-fade">
+        <h3 class="text-xl font-bold mb-3 text-indigo-400">AI Resume Parser</h3>
+        <p class="text-gray-300 mb-4">Extracts personal info, experience, projects from PDF using OpenAI GPT API and stores structured JSON in MongoDB.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-badge">Spring Boot</span>
+          <span class="skill-badge">OpenAI</span>
+          <span class="skill-badge">MongoDB</span>
         </div>
       </div>
-    </section>
 
-    <section id="education">
-      <h2>Education</h2>
-      <div class="grid">
-        <div class="card"><h3>Master of Computer Applications (MCA)</h3><p>Nehru Memorial College • 2021–2023</p></div>
-        <div class="card"><h3>Java Development Course</h3><p>2023 • Spring Boot, Docker, JUnit</p></div>
+      <div class="project-card animate-fade">
+        <h3 class="text-xl font-bold mb-3 text-indigo-400">Secure OTP Login</h3>
+        <p class="text-gray-300 mb-4">Email-based OTP verification system with time-limited tokens for secure authentication.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-badge">JavaMail</span>
+          <span class="skill-badge">Spring Security</span>
+        </div>
       </div>
-    </section>
-  </div>
 
-  <footer>
-    <p>© 2025 Hariharan K • Junior Java Developer • Trichy, India</p>
+      <div class="project-card animate-fade">
+        <h3 class="text-xl font-bold mb-3 text-indigo-400">Subscription Scheduler</h3>
+        <p class="text-gray-300 mb-4">Daily job that auto-downgrades expired subscriptions.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-badge">@Scheduled</span>
+          <span class="skill-badge">MongoDB</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Education -->
+  <section class="py-20 px-6 max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+    <div class="animate-fade">
+      <h2 class="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+        Experience
+      </h2>
+      <div class="glass p-8 rounded-2xl">
+        <h3 class="text-2xl font-bold">Junior Java Developer</h3>
+        <p class="text-indigo-400 font-medium">GigaMe Inc. • Madurai</p>
+        <p class="text-sm text-gray-400 mb-4">Jan 2023 – Present</p>
+        <ul class="space-y-2 text-gray-300">
+          <li>• Built REST APIs with Spring Boot & MongoDB</li>
+          <li>• Integrated OpenAI for intelligent resume parsing</li>
+          <li>• Containerized apps using Docker</li>
+          <li>• Wrote JUnit tests & managed code via TortoiseSVN/Git</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="animate-fade">
+      <h2 class="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+        Education
+      </h2>
+      <div class="space-y-6">
+        <div class="glass p-6 rounded-2xl">
+          <h3 class="text-xl font-bold">MCA</h3>
+          <p class="text-indigo-400">Nehru Memorial College, Trichy</p>
+          <p class="text-sm text-gray-400">2021 – 2023</p>
+        </div>
+        <div class="glass p-6 rounded-2xl">
+          <h3 class="text-xl font-bold">Java Development Course</h3>
+          <p class="text-sm text-gray-400">2023</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 text-center text-gray-500 text-sm">
+    © 2025 Hariharan K • Built with <span class="text-red-500">♥</span> and Java
   </footer>
 
 </body>
